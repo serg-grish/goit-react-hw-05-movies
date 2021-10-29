@@ -5,11 +5,6 @@ class BooksView extends Component {
     books: [],
   };
 
-  async componentDidMount() {
-    const response = await Axios.get(https://api.themoviedb.org/3);
-  
-  }
-
   render() {
     return <h1>Это страница книг</h1>;
 
