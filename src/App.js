@@ -1,49 +1,34 @@
-import React from "react";
-import { Route, NavLink, Switch } from "react-router-dom";
-import HomeView from "./views/HomeView";
-import AuthorView from "./views/AuthorView";
-import BooksView from "./views/BooksView";
-import NotFoundView from "./views/NotFoundView";
+import { lazy, Suspense } from "react";
+import { Route, Switch } from "react-router-dom";
 
-const App = () => (
-  <>
-    <ul>
-      <li>
-        <NavLink
-          exact
-          to="/"
-          className="NavLink"
-          activeClassName="NavLink--active"
-        >
-          Home
-        </NavLink>
-      </li>
-      <li>
-        <NavLink
-          to="/authors"
-          className="NavLink"
-          activeClassName="NavLink--active"
-        >
-          Authors
-        </NavLink>
-      </li>
-      <li>
-        <NavLink
-          to="/books"
-          className="NavLink"
-          activeClassName="NavLink--active"
-        >
-          Books
-        </NavLink>
-      </li>
-    </ul>
-    <Switch>
-      <Route exact path="/" component={HomeView} />
-      <Route path="/authors" component={AuthorView} />
-      <Route path="/books" component={BooksView} />
-      <Route component={NotFoundView} />
-    </Switch>
-  </>
+const Navigation = lazy(() =>
+  import("./components/Navigation" /* webpackChunkName: 'Navigation' */)
+);
+const HomePage = lazy(() =>
+  import("./components/HomePage" /* webpackChunkName: 'HomePage' */)
+);
+const MoviesPage = lazy(() =>
+  import("./components/MoviesPage" /* webpackChunkName: 'MoviesPage' */)
+);
+const MovieDetailsPage = lazy(() =>
+  import(
+    "./components/MovieDetailsPage" /* webpackChunkName: 'MovieDetailsPage' */
+  )
+);
+const NotFoundPage = lazy(() =>
+  import("./components/NotFoundPage" /* webpackChunkName: 'NotFoundPage' */)
 );
 
-export default App;
+export default function App() {
+  return (
+    <Suspense fallback={<h2>Loading...</h2>}>
+      <Navigation />
+      <Switch>
+        <Route path="/" component={HomePage} exact />
+        <Route path="/movies" component={MoviesPage} exact />
+        <Route path="/movies/:movieId" component={MovieDetailsPage} />
+        <Route component={NotFoundPage} />
+      </Switch>
+    </Suspense>
+  );
+}
