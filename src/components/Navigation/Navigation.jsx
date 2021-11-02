@@ -1,5 +1,5 @@
-import { NavLink } from "react-router-dom";
-import s from "./Navigation.module.css";
+import { NavLink } from 'react-router-dom';
+import s from './Navigation.module.scss';
 
 const Navigation = () => {
   return (
@@ -7,16 +7,15 @@ const Navigation = () => {
       <NavLink
         to="/"
         className={s.nav_item}
-        activeClassName={s.activeClassName}
+        activeClassName={s.activeNavLink}
         exact
       >
         Home
       </NavLink>
       <NavLink
-        to="/movie"
+        to="/movies"
         className={s.nav_item}
-        activeClassName={s.activeClassName}
-        exact
+        activeClassName={s.activeNavLink}
       >
         Movie
       </NavLink>

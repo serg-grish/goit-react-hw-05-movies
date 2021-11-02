@@ -1,16 +1,16 @@
-import { useState, useEffect } from "react";
-import { NavLink, useLocation } from "react-router-dom";
-import s from "./HomePage.module.css";
-import fetchMovies from "../../services/movie-api";
+import { useState, useEffect } from 'react';
+import { NavLink, useLocation } from 'react-router-dom';
+import fetchMovies from '../../services/movie-api';
+import s from './HomePage.module.scss';
 
 const HomePage = () => {
-  const location = useLocation;
+  const location = useLocation();
   const [trendMovies, setTrendMovies] = useState([]);
 
   useEffect(() => {
     fetchMovies
-      .fetchTrendingMovieByDay()
-      .then((results) => setTrendMovies(results));
+      .fetchTrendingMoviesByDay()
+      .then(results => setTrendMovies(results));
   }, []);
 
   return (
