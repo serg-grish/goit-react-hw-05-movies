@@ -1,9 +1,9 @@
 import { lazy, Suspense } from 'react';
 import { Route, Switch } from 'react-router-dom';
+import "./App.scss";
+import AppBar from "./components/AppBar/AppBar";
 
-const Navigation = lazy(() =>
-  import('./components/Navigation' /* webpackChunkName: 'Navigation' */),
-);
+
 const HomePage = lazy(() =>
   import('./pages/HomePageView' /* webpackChunkName: 'HomePage' */),
 );
@@ -21,8 +21,10 @@ const NotFoundPage = lazy(() =>
 
 export default function App() {
   return (
+  <div className="App">
+    <AppBar />
     <Suspense fallback={<h2>Loading...</h2>}>
-      <Navigation />
+    
       <Switch>
         <Route path="/" component={HomePage} exact />
         <Route path="/movies" component={MoviesPage} exact />
@@ -30,5 +32,6 @@ export default function App() {
         <Route component={NotFoundPage} />
       </Switch>
     </Suspense>
+    </div>
   );
 }

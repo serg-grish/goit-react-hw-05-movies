@@ -10,25 +10,33 @@ function HomePageView () {
   useEffect(() => {
     fetchMovies
       .fetchTrendingMoviesByDay()
-      .then(results => setTrendMovies(results));
+      .then((result) => setTrendMovies(result));
   }, []);
 
   return (
-    <ul className={s.list}>
-      {trendMovies.map(({ id, title }) => (
-        <li className={s.list_item} key={id}>
-          <Link
-            to={{
-              pathname: `movies/${id}`,
-              state: { from: location },
-            }}
-          >
-            {title}
-          </Link>
-        </li>
-      ))}
-    </ul>
+    <>
+    <h1>Today's most popular movie</h1>
+    {trendMovies && (
+      <ul className={s.movieList}>
+        {trendMovies.map(( trendMovie ) => (
+          <li key={trendMovie.id } className={s.movieItem}>
+            <Link to={{
+              pathname: `/movies/${ trendMovie.id }`,
+              state: {from: location}
+            }}>
+              <img
+                src={
+                  "https://image.tmdb.org/t/p/w200" + trendMovie.poster_path
+                }
+                alt={trendMovie.title} width='200'
+              ></img>
+            </Link>
+          </li>
+        ))}
+      </ul>
+    )}
+    </>
   );
-};
+}
 
 export default HomePageView;

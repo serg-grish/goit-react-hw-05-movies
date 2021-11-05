@@ -16,7 +16,9 @@ export default function MovieDetailsPage() {
   const [movie, setMovie] = useState([]);
 
   useEffect(() => {
-    fetchMovies.fetchMoviesById(movieId).then(response => setMovie(response));
+    fetchMovies
+    .fetchMoviesById(movieId)
+    .then(response => setMovie(response));
   }, [movieId]);
 
   const onGoBack = () => {
@@ -30,6 +32,7 @@ export default function MovieDetailsPage() {
           <button type="button" className={s.goBack_btn} onClick={onGoBack}>
             Go back
           </button>
+
           <div className={s.movie_details}>
             <div className={s.movie_img}>
               <img
