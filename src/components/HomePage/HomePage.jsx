@@ -15,7 +15,7 @@ function HomePageView () {
 
   return (
     <>
-    <h1>Today's most popular movie</h1>
+    <h1>Trending movies</h1>
     {trendMovies && (
       <ul className={s.movieList}>
         {trendMovies.map(( trendMovie ) => (
