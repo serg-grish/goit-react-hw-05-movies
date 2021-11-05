@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import fetchMovies from '../../services/movie-api';
 import s from './HomePage.module.scss';
 
-const HomePage = () => {
+function HomePageView () {
   const location = useLocation();
   const [trendMovies, setTrendMovies] = useState([]);
 
@@ -17,18 +17,18 @@ const HomePage = () => {
     <ul className={s.list}>
       {trendMovies.map(({ id, title }) => (
         <li className={s.list_item} key={id}>
-          <NavLink
+          <Link
             to={{
               pathname: `movies/${id}`,
               state: { from: location },
             }}
           >
             {title}
-          </NavLink>
+          </Link>
         </li>
       ))}
     </ul>
   );
 };
 
-export default HomePage;
+export default HomePageView;

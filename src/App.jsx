@@ -5,7 +5,7 @@ const Navigation = lazy(() =>
   import('./components/Navigation' /* webpackChunkName: 'Navigation' */),
 );
 const HomePage = lazy(() =>
-  import('./components/HomePage' /* webpackChunkName: 'HomePage' */),
+  import('./pages/HomePageView' /* webpackChunkName: 'HomePage' */),
 );
 const MoviesPage = lazy(() =>
   import('./components/MoviesPage' /* webpackChunkName: 'MoviesPage' */),
@@ -16,7 +16,7 @@ const MovieDetailsPage = lazy(() =>
   ),
 );
 const NotFoundPage = lazy(() =>
-  import('./components/NotFoundPage' /* webpackChunkName: 'NotFoundPage' */),
+  import('./pages/NotFoundView' /* webpackChunkName: 'NotFoundPage' */),
 );
 
 export default function App() {

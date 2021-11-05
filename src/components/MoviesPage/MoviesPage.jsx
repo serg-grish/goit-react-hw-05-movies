@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { NavLink, useLocation, useHistory } from 'react-router-dom';
+import { Link, useLocation, useHistory } from 'react-router-dom';
 import fetchMovies from '../../services/movie-api';
 
 const MoviesPage = () => {
@@ -59,14 +59,14 @@ const MoviesPage = () => {
       <ul>
         {movie.map(({ id, title }) => (
           <li key={id}>
-            <NavLink
+            <Link
               to={{
                 pathname: `${pathname}/${id}`,
                 state: { from: location },
               }}
             >
               {title}
-            </NavLink>
+            </Link>
           </li>
         ))}
       </ul>

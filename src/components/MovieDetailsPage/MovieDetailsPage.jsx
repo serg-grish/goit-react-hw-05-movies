@@ -1,23 +1,16 @@
-import { useState, useEffect, lazy, Suspense } from 'react';
+import { useState, useEffect } from 'react';
 import {
-  Route,
-  NavLink,
   useParams,
-  useRouteMatch,
   useHistory,
   useLocation,
 } from 'react-router-dom';
 import fetchMovies from '../../services/movie-api';
 import s from './MovieDetailsPage.module.scss';
 
-const Cast = lazy(() => import('../Cast/Cast' /* webpackChunkName: 'Cast' */));
-const Reviews = lazy(() =>
-  import('../Reviews/Reviews' /* webpackChunkName: 'Reviews' */),
-);
 
-const MovieDetailsPage = () => {
+
+export default function MovieDetailsPage() {
   const { movieId } = useParams();
-  const { url } = useRouteMatch();
   const history = useHistory();
   const location = useLocation();
   const [movie, setMovie] = useState([]);
@@ -54,41 +47,8 @@ const MovieDetailsPage = () => {
             </div>
           </div>
 
-          <NavLink
-            to={{
-              pathname: `${url}/cast`,
-              state: { ...location.state },
-            }}
-            className={s.nav_item}
-            activeClassName={s.activeNavLink}
-          >
-            Cast
-          </NavLink>
-
-          <NavLink
-            to={{
-              pathname: `${url}/reviews`,
-              state: { ...location.state },
-            }}
-            className={s.nav_item}
-            activeClassName={s.activeNavLink}
-          >
-            Reviews
-          </NavLink>
-
-          <Suspense fallback={<h2>Loading...</h2>}>
-            <Route path={`${url}/cast`}>
-              <Cast movieId={movieId} />
-            </Route>
-
-            <Route path={`${url}/reviews`}>
-              <Reviews movieId={movieId} />
-            </Route>
-          </Suspense>
         </>
       )}
     </>
   );
 };
-
-export default MovieDetailsPage;
