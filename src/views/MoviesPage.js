@@ -62,7 +62,6 @@ const MoviesPage = () => {
                   width="280px"
                   height="450px"
                 />
-                <p>{title}</p>
               </Link>
             </li>
           ))}
