@@ -42,7 +42,7 @@ const MoviesPage = () => {
       {list && (
         <ul className={styles.moviesList}>
           {list.map(({ id, title, name, poster_path }) => (
-            <li key={id}>
+            <li key={id} className={styles.movieItem}>
               <Link
                 to={{
                   pathname: `${url}/${id}`,
