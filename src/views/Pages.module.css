@@ -1,0 +1,71 @@
+.homeList,
+.castList,
+.moviesList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+li {
+  list-style: none;
+}
+
+.movie {
+  display: flex;
+}
+
+.posterDetails {
+  display: block;
+  width: 300px;
+  margin-right: 10px;
+}
+
+.movieList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 1200px;
+  margin: 0 auto;
+  padding-left: 0;
+}
+
+.movieItem {
+  list-style: none;
+  margin: 10px;
+}
+
+.movieItem:hover,
+.movieItem:focus {
+  cursor: pointer;
+  box-shadow: 10px 10px 10px #7c7c7c;
+  transition: box-shadow linear 150ms;
+  scale: 1.1;
+}
+
+
+.tendName {
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 19px;
+}
+.addinfocontainer {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.link {
+  color: black;
+  text-decoration: none;
+  font-size: 32px;
+}
+
+.link:not(:last-child) {
+  margin-right: 10px;
+}
+
+.activeLink {
+  color: #2196f3;
+}

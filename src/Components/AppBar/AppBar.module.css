@@ -1,0 +1,10 @@
+.nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80px;
+    margin-bottom: 16px;
+    background-color: rgb(134, 219, 240);
+    border-bottom: 1px
+ solid #3f3d49;
+  }
