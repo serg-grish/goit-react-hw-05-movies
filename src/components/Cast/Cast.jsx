@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-// import { fetchMovieCast } from '../../services/movie-api';
+import PropTypes from "prop-types";
 import fetchMovies from '../../services/movie-api';
 import s from './Cast.module.scss';
 
@@ -36,6 +36,9 @@ const Cast = ({ movieId }) => {
       )}
     </>
   );
+};
+Cast.propTypes = {
+  movieId: PropTypes.string.isRequired,
 };
 
 export default Cast;

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import PropTypes from "prop-types"
 import fetchMovies from '../../services/movie-api';
 
 const Reviews = ({ movieId }) => {
@@ -27,5 +28,11 @@ const Reviews = ({ movieId }) => {
     </>
   );
 };
+
+Reviews.propTypes = {
+  movieId: PropTypes.string.isRequired,
+};
+
+
 
 export default Reviews;

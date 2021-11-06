@@ -26,9 +26,9 @@ function HomePageView () {
             }}>
               <img
                 src={
-                  "https://image.tmdb.org/t/p/w200" + trendMovie.poster_path
+                  "https://image.tmdb.org/t/p/w300" + trendMovie.poster_path
                 }
-                alt={trendMovie.title} width='200'
+                alt={trendMovie.title} width='300'
               ></img>
             </Link>
           </li>
